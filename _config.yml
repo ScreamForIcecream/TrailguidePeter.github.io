@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: SPiN
-email: peterseidl@posteo.de
+email: wespinit@posteo.de
 description: >- # this means to ignore newlines until "baseurl:"
   As the world seems to stumble into one crisis after the other, SPiN takes a look
   into the possibilities everyone has to influence on what is going on.
