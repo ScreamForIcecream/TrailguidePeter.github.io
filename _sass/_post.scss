@@ -99,14 +99,18 @@
   }
 
   img.post-cover {
+    max-width: 100%;
     padding: 0;
     margin-top: rem(20px);
     margin-bottom: rem(20px);
 
     @include media(">=sm") {
+      width: 100%;
+      max-width: 50rem;
       margin-top: rem(29px);
       margin-bottom: rem(29px);
     }
+
   }
 
   p.post-info {
