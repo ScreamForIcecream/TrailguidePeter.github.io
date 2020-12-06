@@ -9,8 +9,8 @@ permalink: /about/
 
 # About
 
-As the world seems to stumble into one crisis after the other, SPiN takes a look
-into the possibilities everyone has to influence on what is going on.
+As the world seems to stumble into one crisis after another, SPiN takes a look
+at the possibilities everyone has to influence what is going on.
 Growth and technology were the promising solutions to all problems in the 20th century.
-Is that still appropriate and the only possible way? Is there something each individual
+Is that still appropriate and the only possible way forward? Is there something each individual
 can do to create a world we want to live in?
