@@ -635,9 +635,9 @@
 
     a {
       font-size: rem(14px);
-      color: $primaryDark;
+      color: $accentDark;
       display: inline-block;
-      border: 1px solid $primaryDark;
+      border: 1px solid lighten($accentDark, 30%);
       border-radius: rem(20px);
       padding: 0 rem(10px);
       margin-right: rem(2px);

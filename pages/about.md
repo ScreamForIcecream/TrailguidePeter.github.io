@@ -9,9 +9,8 @@ permalink: /about/
 
 # About
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+As the world seems to stumble into one crisis after the other, SPiN takes a look
+into the possibilities everyone has to influence on what is going on.
+Growth and technology were the promising solutions to all problems in the 20th century.
+Is that still appropriate and the only possible way? Is there something each individual
+can do to create a world we want to live in?
