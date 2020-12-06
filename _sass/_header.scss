@@ -119,10 +119,6 @@ body.light:not(.main-page) {
       fill: lighten($accentDark, 20%);
     }
 
-    .logo a {
-      color: rgba(255, 255, 255, 0);
-    }
-
     .logo svg {
       opacity: 0;
     }
