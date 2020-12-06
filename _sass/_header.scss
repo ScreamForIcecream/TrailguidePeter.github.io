@@ -35,10 +35,7 @@ body {
       width: rem(120px);
       height: rem(30px);
       transition: all .4s;
-
-      @include media(">=sm") {
-        width: rem(205px);
-      }
+      opacity: 0.8;
     }
   }
 
@@ -123,8 +120,13 @@ body.light:not(.main-page) {
     }
 
     .logo a {
-      color: lighten($accentDark, 20%);
+      color: rgba(255, 255, 255, 0);
     }
+
+    .logo svg {
+      opacity: 0;
+    }
+
   }
 }
 
