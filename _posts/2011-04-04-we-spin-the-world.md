@@ -6,7 +6,7 @@ subtitle: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 image: https://res.cloudinary.com/dztnnl8x9/image/upload/v1607262462/SPiN_logo_black_world_jpg_ltsg9e.jpg
 optimized_image: https://res.cloudinary.com/dztnnl8x9/image/upload/c_crop,h_2193,w_4161/c_scale,h_200,w_380/v1607262462/SPiN_logo_black_world_jpg_ltsg9e.jpg
-#category: blog
+category: blog
 tags:
   - vision
   - empowerment
