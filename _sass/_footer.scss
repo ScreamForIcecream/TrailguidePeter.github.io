@@ -1,7 +1,7 @@
 .comments {
   @include center(rem(800px));
   padding: 0 rem(20px);
-  
+
   h3 {
     margin: 0 0 rem(30px);
     font-size: rem(30px);
@@ -11,7 +11,7 @@
 footer {
   @include center(rem(800px));
   border-top: 1px solid darken($accentDark, 10%);
-  background: $accentDark;
+  background: $primaryDark;
   padding: rem(20px) rem(25px);
   margin-top: rem(50px);
   margin-bottom: rem(120px);
@@ -57,11 +57,11 @@ footer {
     transition: all 0.3s ease;
     text-decoration: none;
     color: #808080;
-    
+
     &:hover {
       fill: $themeColor;
     }
-    
+
     &.creator:hover {
       text-decoration: underline;
     }
@@ -78,7 +78,7 @@ footer {
     a {
       text-decoration: none;
       font-size: rem(15px);
-      
+
       &:hover {
         text-decoration: underline;
       }
@@ -89,8 +89,8 @@ footer {
 .main-page {
   footer {
     background: $primaryDark;
-    border-top: 1px solid lighten($primaryDark, 10%);
-    
+    border-top: 1px solid lighten($accentDark, 10%);
+
     p {
       color: $accentDark;
     }
