@@ -13,7 +13,9 @@ show_hero: true
 menu:
   - title: Home
     url: /
-  - title: Map
+  - title: Cesium
+    url: /cesium
+  - title: WebGLearth
     url: /map
   - title: Tags
     url: /tags
