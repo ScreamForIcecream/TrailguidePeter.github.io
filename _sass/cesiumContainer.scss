@@ -1,0 +1,9 @@
+html,body {
+  margin:0px;
+  height:100%;
+  overflow:hidden;
+}
+/* -32px for the console bar that JSFiddle adds. */
+#cesiumContainer {
+  height:calc(100%);
+}
