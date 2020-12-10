@@ -6,6 +6,18 @@
   <!-- Include the CesiumJS JavaScript and CSS files -->
   <script src="https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Cesium.js"></script>
   <link href="https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <style type="text/css">
+      html,
+      body {
+        margin: 0px;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #cesiumContainer {
+        height: calc(100%);
+      }
+  </style>
 </head>
 <body>
   <div id="cesiumContainer"></div>
