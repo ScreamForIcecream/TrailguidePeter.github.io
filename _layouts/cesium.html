@@ -63,6 +63,7 @@
     var position = Cesium.Cartographic.fromDegrees(6.865, 45.8325);
     var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, position);
     Cesium.when(promise, function(updatedposition) {});
+    // function is missing!
 
     // Add text label
     viewer.entities.add({
