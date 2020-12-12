@@ -62,10 +62,7 @@
     var terrainProvider = Cesium.createWorldTerrain();
     var position = Cesium.Cartographic.fromDegrees(6.865, 45.8325);
     var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, position);
-    Cesium.when(promise, function(updatedposition) {
-        // positions[0].height and positions[1].height have been updated.
-        // updatedPositions is just a reference to positions.
-    });
+    Cesium.when(promise, function(updatedposition) {});
 
     // Add text label
     viewer.entities.add({
