@@ -30,6 +30,7 @@
     Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
     Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
+    // Container settings
     var viewer = new Cesium.Viewer('cesiumContainer', {
     	baseLayerPicker : false,
       animation : false,
@@ -47,11 +48,36 @@
     });
     viewer.scene.frameState.creditDisplay.destroy();
 
+    // Add Trailguide logo
     viewer.entities.add({
       position: Cesium.Cartesian3.fromDegrees(8.845, 60.685, 600),
       billboard: {
         image: "https://res.cloudinary.com/trailguide-as/image/upload/v1607637200/logo/trailguidewhite.png",
         scaleByDistance: new Cesium.NearFarScalar(0, 0.1, 1.5e5, 0.01),
+        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 1.5e5),
+      },
+    });
+
+    // Query the terrain height of two Cartographic positions
+    var terrainProvider = Cesium.createWorldTerrain();
+    var position = Cesium.Cartographic.fromDegrees(6.865, 45.8325);
+    var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, position);
+    Cesium.when(promise, function(updatedposition) {
+        // positions[0].height and positions[1].height have been updated.
+        // updatedPositions is just a reference to positions.
+    });
+
+    // Add text label
+    viewer.entities.add({
+      position: Cesium.Cartesian3.fromRadians(position.longitude, position.latitude, position.height + 5000),
+      label: {
+        text: "Mont Blanc\n4809m",
+        font: "24px Arial",
+        fillColor: Cesium.Color.fromBytes(255,255,255,200),
+        outlineColor: Cesium.Color.BLACK,
+        outlineWidth: 2,
+        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+        scaleByDistance: new Cesium.NearFarScalar(0, 1, 1.5e5, 2),
         distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 1.5e5),
       },
     });
