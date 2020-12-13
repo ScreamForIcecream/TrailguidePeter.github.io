@@ -46,7 +46,12 @@
       terrainExaggeration: 1,
       terrainProvider: Cesium.createWorldTerrain()
     });
+
+    // kill the timeline and clock
     viewer.scene.frameState.creditDisplay.destroy();
+
+    // hide geometries behind terrain
+    viewer.scene.globe.depthTestAgainstTerrain = true;
 
     // Add Trailguide logo
     viewer.entities.add({
