@@ -6,6 +6,8 @@
   <!-- Include the CesiumJS JavaScript and CSS files -->
   <script src="https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Cesium.js"></script>
   <link href="https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/BaseLayerPicker/BaseLayerPicker.css" rel="stylesheet">
+
   <style type="text/css">
       html,
       body {
@@ -21,6 +23,7 @@
 </head>
 <body>
   <div id="cesiumContainer"></div>
+  <div id="baseLayerPickerContainer" style="position:absolute;top:24px;right:24px;width:38px;height:38px;"></div>
   <script>
     // Your access token can be found at: https://cesium.com/ion/tokens.
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YTdlYWJkMC1kMmE1LTRiY2UtYTRhYy0wNWRmNGJmMGE0MTIiLCJpZCI6Mzk1MjEsImlhdCI6MTYwNzYwODYzMX0.QiNnF11wAMGQ-jbdbVDHWxDGfnHFV8u8t4VpwK98J6M';
@@ -31,22 +34,40 @@
     Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
     Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
-    // Container settings
-    var viewer = new Cesium.Viewer('cesiumContainer', {
-    	baseLayerPicker : false,
-      animation : false,
-      timeline : false,
-      sceneModePicker: true,
-      navigationHelpButton: false,
-      fullscreenButton: false,
-      navigationInstructionsInitiallyVisible: false,
-      mapProjection : new Cesium.WebMercatorProjection,
-      imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-        url : 'https://maps.trailguide.net/trailguidesummer/'
-    }),
-      terrainExaggeration: 1,
-      terrainProvider: Cesium.createWorldTerrain()
-    });
+    var imageryViewModels = [];
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+         name : 'Trailguide Summer',
+         iconUrl : "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607908467/mapthumbnail_trailguide_jxwzsb.png",
+         tooltip : 'Trailguide topo map for summer sports',
+         creationFunction : function() {
+             return new Cesium.OpenStreetMapImageryProvider({
+                 url : 'https://maps.trailguide.net/trailguidesummer/'
+             });
+         }
+     }));
+
+     imageryViewModels.push(new Cesium.ProviderViewModel({
+         name : 'Satellite',
+         iconUrl : "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607908467/mapthumbnail_satellite_a3fuzf.png",
+         tooltip : 'Satellite pictures',
+         creationFunction : function() {
+             return new Cesium.IonImageryProvider({ assetId: 2 });
+         }
+     }));
+
+     var viewer = new Cesium.Viewer('cesiumContainer', {
+       imageryProviderViewModels : imageryViewModels,
+       baseLayerPicker : true,
+       animation : false,
+       timeline : false,
+       sceneModePicker: true,
+       navigationHelpButton: false,
+       fullscreenButton: false,
+       navigationInstructionsInitiallyVisible: false,
+       mapProjection : new Cesium.WebMercatorProjection,
+       terrainExaggeration: 1,
+       terrainProvider: Cesium.createWorldTerrain()
+     });
 
     // kill the timeline and clock
     viewer.scene.frameState.creditDisplay.destroy();
