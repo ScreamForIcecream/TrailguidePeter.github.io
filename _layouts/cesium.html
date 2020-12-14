@@ -393,6 +393,7 @@ function showPosition(position) {
 
   // fly into Map
   viewer.camera.flyTo({
+    duration: 0.8,
     destination : Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 3000)
   });
 
@@ -403,6 +404,7 @@ function showPosition(position) {
   function alignView() {
     var currentPosition = viewer.camera.positionCartographic;
     viewer.camera.flyTo({
+      duration: 0.2,
       destination : Cesium.Cartesian3.fromRadians(currentPosition.longitude, currentPosition.latitude, currentPosition.height),
       orientation: {
         heading: 0,
