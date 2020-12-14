@@ -41,7 +41,6 @@
 
       .button:hover {
         background-color: rgba(80,151,191,0.8);
-        transition: all 0.4s;
       }
 
       .button:active {
@@ -54,6 +53,7 @@
   <div id="cesiumContainer"></div>
   <div class="toolbar-left">
     <button class="button" onclick="getLocation()">Pos</button>
+    <button class="button" onclick="alignView()">View</button>
   </div>
   <div id="baseLayerPickerContainer" style="position:absolute;top:24px;right:24px;width:38px;height:38px;"></div>
   <script>
@@ -397,6 +397,21 @@ function showPosition(position) {
   });
 
 }
+</script>
+
+<script>
+  function alignView() {
+    var currentPosition = viewer.camera.positionCartographic;
+    window.alert(currentPosition.longitude);
+    viewer.camera.flyTo({
+      destination : Cesium.Cartesian3.fromRadians(currentPosition.longitude, currentPosition.latitude, currentPosition.height),
+      orientation: {
+        heading: 0,
+        pitch: -1.5707963267948966192313216916398,
+        roll: 0,
+      },
+    });
+  }
 </script>
 
  </div>
