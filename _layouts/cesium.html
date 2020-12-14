@@ -346,7 +346,6 @@
 </script>
 
 <script>
-
 // define varaibles
 var icon;
 var icontest = false;
@@ -374,13 +373,14 @@ function showPosition(position) {
     icon = viewer.entities.add({
       name: "Lat " + position.coords.latitude.toFixed(5) +
       " \nLon " + position.coords.longitude.toFixed(5),
-      position: Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 5),
+      position: Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude),
       billboard: {
         image: "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607955354/position_kxc2vq.png",
         scaleByDistance: new Cesium.NearFarScalar(0, 0.5, 1e6, 0.1),
         distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 1e6),
-        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-        heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND,
+        verticalOrigin: Cesium.VerticalOrigin.CENTER,
+        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+        disableDepthTestDistance : Number.POSITIVE_INFINITY,
       },
     });
 
@@ -391,11 +391,10 @@ function showPosition(position) {
 
   // fly into Map
   viewer.camera.flyTo({
-    destination : Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 2000)
+    destination : Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 3000)
   });
 
 }
-
 </script>
 
  </div>
