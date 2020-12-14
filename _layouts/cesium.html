@@ -19,24 +19,56 @@
       #cesiumContainer {
         height: calc(100%);
       }
+
+      .toolbar-left {
+          display: block;
+          position: absolute;
+          bottom: 5px;
+          left: 5px;
+      }
+
+      .button {
+        background-color: rgba(50,50,50,0.8);
+        border: 2px rgba(255,255,255,1);
+        border-radius: 8px;
+        color: white;
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      .button:hover {
+        background-color: rgba(80,151,191,0.8);
+      }
+
+      .button:active {
+        transform: translateY(2px);
+      }
+
   </style>
 </head>
 <body>
   <div id="cesiumContainer"></div>
+  <div class="toolbar-left">
+    <button class="button" onclick="getLocation()">Pos</button>
+  </div>
   <div id="baseLayerPickerContainer" style="position:absolute;top:24px;right:24px;width:38px;height:38px;"></div>
   <script>
     // Your access token can be found at: https://cesium.com/ion/tokens.
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YTdlYWJkMC1kMmE1LTRiY2UtYTRhYy0wNWRmNGJmMGE0MTIiLCJpZCI6Mzk1MjEsImlhdCI6MTYwNzYwODYzMX0.QiNnF11wAMGQ-jbdbVDHWxDGfnHFV8u8t4VpwK98J6M';
 
-    // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
+    // Set the home view
     var extent = Cesium.Rectangle.fromDegrees(-23.168235,27.079881,53.131185,80.754928);
 
     Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
     Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
+    // Create the available maps
     var imageryViewModels = [];
     imageryViewModels.push(new Cesium.ProviderViewModel({
-         name : 'Trailguide Summer',
+         name : 'Trailguide',
          iconUrl : "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607908467/mapthumbnail_trailguide_jxwzsb.png",
          tooltip : 'Trailguide topo map for summer sports',
          creationFunction : function() {
@@ -55,6 +87,7 @@
          }
      }));
 
+     // Initialize the cesium container
      var viewer = new Cesium.Viewer('cesiumContainer', {
        imageryProviderViewModels : imageryViewModels,
        baseLayerPicker : true,
@@ -126,6 +159,7 @@
           });
         });
 
+    // Add trailhead in form of a Billboard
     viewer.entities.add({
     	name: "Den Ravinde",
       position: Cesium.Cartesian3.fromDegrees(9.145262455567718,	60.57673305273056),
@@ -138,6 +172,7 @@
       },
     });
 
+    // Add trail in form of a Polyline
     viewer.entities.add({
       polyline: {
         id: "Den Ravinde",
@@ -289,26 +324,80 @@
     				9.13143340498209,	60.57392184622586,
         ]),
         clampToGround: true,
-        width: 5,
+        width: 4,
         distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.2e5),
         material: new Cesium.PolylineOutlineMaterialProperty({
           color: Cesium.Color.fromBytes(204,31,26,220),
-          outlineWidth: 0,
-          outlineColor: Cesium.Color.WHITE,
+          outlineWidth: 1,
+          outlineColor: Cesium.Color.fromBytes(204,31,26,220),
         }),
       },
     });
 
     // fly into Map
-    viewer.camera.flyTo({
-      destination : Cesium.Cartesian3.fromDegrees(9.12,	60.55, 2000),
-      orientation : {
-        heading : Cesium.Math.toRadians(10),
-        pitch : Cesium.Math.toRadians(-25.0),
-      }
+    //viewer.camera.flyTo({
+    //  destination : Cesium.Cartesian3.fromDegrees(9.12,	60.55, 2000),
+    //  orientation : {
+    //    heading : Cesium.Math.toRadians(10),
+    //    pitch : Cesium.Math.toRadians(-25.0),
+    //  }
+    //});
+
+</script>
+
+<script>
+
+// define varaibles
+var icon;
+var icontest = false;
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    window.alert("Can't get location");
+  }
+}
+
+function showPosition(position) {
+  //window.alert(icontest);
+  if (icontest) {
+    icon.position = Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 5);
+    icon.name = "Lat " + position.coords.latitude.toFixed(5) + " \nLon " + position.coords.longitude.toFixed(5);
+    //window.alert("Location updated");
+  } else {
+
+    //window.alert("Latitude: " + position.coords.latitude +
+    //"\nLongitude: " + position.coords.longitude);
+
+    // Add location icon
+    icon = viewer.entities.add({
+      name: "Lat " + position.coords.latitude.toFixed(5) +
+      " \nLon " + position.coords.longitude.toFixed(5),
+      position: Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 5),
+      billboard: {
+        image: "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607955354/position_kxc2vq.png",
+        scaleByDistance: new Cesium.NearFarScalar(0, 0.5, 1e6, 0.1),
+        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 1e6),
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND,
+      },
     });
 
-  </script>
+    icontest = true;
+    //window.alert(icontest);
+
+  }
+
+  // fly into Map
+  viewer.camera.flyTo({
+    destination : Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 2000)
+  });
+
+}
+
+</script>
+
  </div>
 </body>
 </html>
