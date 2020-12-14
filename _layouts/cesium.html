@@ -74,7 +74,9 @@
          tooltip : 'Trailguide topo map for summer sports',
          creationFunction : function() {
              return new Cesium.OpenStreetMapImageryProvider({
-                 url : 'https://maps.trailguide.net/trailguidesummer/'
+                 url : 'https://maps.trailguide.net/trailguidesummer/',
+                 minimumLevel: 2,
+                 maximumlevel: 18
              });
          }
      }));
