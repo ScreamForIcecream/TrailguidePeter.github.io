@@ -402,7 +402,6 @@ function showPosition(position) {
 <script>
   function alignView() {
     var currentPosition = viewer.camera.positionCartographic;
-    window.alert(currentPosition.longitude);
     viewer.camera.flyTo({
       destination : Cesium.Cartesian3.fromRadians(currentPosition.longitude, currentPosition.latitude, currentPosition.height),
       orientation: {
