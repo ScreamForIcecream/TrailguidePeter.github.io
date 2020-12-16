@@ -107,15 +107,16 @@
      });
 
      //handle view rotation when camera looks straight down on earth
-     var camera = viewer.scene.camera;
-    viewer.scene.preRender.addEventListener(limitPitch)
+    var camera = viewer.scene.camera;
+    viewer.camera.moveStart.addEventListener(limitPitch)
 
     function limitPitch() {
     	var currentPitch = viewer.camera.pitch;
+      var currentHeading = viewer.camera.heading;
       if (currentPitch > -1.6 && currentPitch < -1.5) {
           camera.setView({
             orientation: {
-              heading: 0,
+              heading: currentHeading,
               pitch: camera.pitch,
               roll: camera.roll
             }
