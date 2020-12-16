@@ -101,10 +101,35 @@
        fullscreenButton: false,
        navigationInstructionsInitiallyVisible: false,
        mapProjection : new Cesium.WebMercatorProjection(),
-       useBrowserRecommendedResolution: true, // false decreases performance but resolution is better
+       useBrowserRecommendedResolution: true, // false decreases performance noticable but resolution is better
        terrainExaggeration: 1,
        terrainProvider: Cesium.createWorldTerrain()
      });
+
+     //handle view rotation when camera looks straight down on earth
+     var camera = viewer.scene.camera;
+    viewer.scene.preRender.addEventListener(limitPitch)
+
+    function limitPitch() {
+    	var currentPitch = viewer.camera.pitch;
+      if (currentPitch > -1.580 && currentPitch < -1.560) {
+          camera.setView({
+            orientation: {
+              heading: 0,
+              pitch: camera.pitch,
+              roll: camera.roll
+            }
+          });
+      } else {
+        camera.setView({
+          orientation: {
+            heading: camera.heading,
+            pitch: camera.pitch,
+            roll: camera.roll
+          }
+        });
+      }
+    }
 
     // kill the timeline and clock
     viewer.scene.frameState.creditDisplay.destroy();
@@ -429,9 +454,9 @@ function showPosition(position) {
       duration: 0.2,
       destination : Cesium.Cartesian3.fromRadians(currentPosition.longitude, currentPosition.latitude, currentPosition.height),
       orientation: {
-        heading: 0,
-        pitch: -1.5707963267948966192313216916398,
-        roll: 0,
+        heading: Cesium.Math.toRadians(0),
+        pitch: Cesium.Math.toRadians(-90.0), //-1.5707963267948966192313216916398,
+        roll: Cesium.Math.toRadians(0),
       },
     });
   }
