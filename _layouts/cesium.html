@@ -358,7 +358,7 @@ function getLocation() {
       navigator.geolocation.getCurrentPosition(showPosition, zeigeFehler, {
         enableHighAccuracy: true,
         timeout: 5000,
-        maximumAge: 60000
+        maximumAge: 5000
       });
   } else { window.alert("Can't get location"); }
 }
@@ -366,16 +366,16 @@ function getLocation() {
 function zeigeFehler(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            window.alert("Benutzer lehnte Standortabfrage ab.");
+            window.alert("No permission for location");
             break;
         case error.POSITION_UNAVAILABLE:
-            window.alert("Standortdaten sind nicht verfügbar.");
+            window.alert("No location data available");
             break;
         case error.TIMEOUT:
-            window.alert("Die Standortabfrage dauerte zu lange (Time-out).");
+            window.alert("Time-out");
             break;
         case error.UNKNOWN_ERROR:
-            window.alert("unbekannter Fehler.");
+            window.alert("Unknown error");
             break;
     }
 }
