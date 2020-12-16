@@ -121,13 +121,21 @@
 
      function limitHeading() {
      	var currentPitch = viewer.camera.pitch;
-       if (currentPitch > -2 && currentPitch < -1) {
+       if (currentPitch > -1.65 && currentPitch < -1.49) {
          	camera.setView({
-            defaultRotateAmount: Math.PI / 900
+             orientation: {
+                 heading: currentHeading,
+                 pitch: camera.pitch,
+                 roll: camera.roll
+             }
            });
        } else {
          	camera.setView({
-            defaultRotateAmount: Math.PI / 900
+             orientation: {
+                 heading: camera.heading,
+                 pitch: camera.pitch,
+                 roll: camera.roll
+             }
            });
            currentHeading = camera.heading;
        }
