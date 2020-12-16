@@ -117,40 +117,40 @@
        terrainProvider: Cesium.createWorldTerrain()
      });
 
-    // Handle camera rotation when zooming and camera points straight down
-     var camera = viewer.scene.camera;
-
-     // Read current Heading when camera starts moving
-     var currentHeading;
-     viewer.camera.moveStart.addEventListener(heading);
-     function heading() {
-          currentHeading = viewer.camera.heading;
-          //window.alert(currentHeading)
-     }
-
-     viewer.scene.preRender.addEventListener(limitHeading);
-
-     function limitHeading() {
-     	var currentPitch = viewer.camera.pitch;
-       if (currentPitch > -1.59 && currentPitch < -1.55) {
-         	camera.setView({
-             orientation: {
-                 heading: currentHeading,
-                 pitch: camera.pitch,
-                 roll: camera.roll
-             }
-           });
-       } else {
-         	camera.setView({
-             orientation: {
-                 heading: camera.heading,
-                 pitch: camera.pitch,
-                 roll: camera.roll
-             }
-           });
-           currentHeading = camera.heading;
-       }
-     }
+    // // Handle camera rotation when zooming and camera points straight down
+    //  var camera = viewer.scene.camera;
+    //
+    //  // Read current Heading when camera starts moving
+    //  var currentHeading;
+    //  viewer.camera.moveStart.addEventListener(heading);
+    //  function heading() {
+    //       currentHeading = viewer.camera.heading;
+    //       //window.alert(currentHeading)
+    //  }
+    //
+    //  viewer.scene.preRender.addEventListener(limitHeading);
+    //
+    //  function limitHeading() {
+    //  	var currentPitch = viewer.camera.pitch;
+    //    if (currentPitch > -1.59 && currentPitch < -1.55) {
+    //      	camera.setView({
+    //          orientation: {
+    //              heading: currentHeading,
+    //              pitch: camera.pitch,
+    //              roll: camera.roll
+    //          }
+    //        });
+    //    } else {
+    //      	camera.setView({
+    //          orientation: {
+    //              heading: camera.heading,
+    //              pitch: camera.pitch,
+    //              roll: camera.roll
+    //          }
+    //        });
+    //        currentHeading = camera.heading;
+    //    }
+    //  }
 
     // kill the timeline and clock
     viewer.scene.frameState.creditDisplay.destroy();
