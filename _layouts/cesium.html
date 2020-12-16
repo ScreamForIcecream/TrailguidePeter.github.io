@@ -101,6 +101,7 @@
        fullscreenButton: false,
        navigationInstructionsInitiallyVisible: false,
        mapProjection : new Cesium.WebMercatorProjection(),
+       useBrowserRecommendedResolution: true, // false decreases performance but resolution is better
        terrainExaggeration: 1,
        terrainProvider: Cesium.createWorldTerrain()
      });
@@ -364,8 +365,8 @@ function getLocation() {
 function showPosition(position) {
   //window.alert(icontest);
   if (icontest) {
-    icon.position = Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude, 5);
-    icon.name = "Lat " + position.coords.latitude.toFixed(5) + " \nLon " + position.coords.longitude.toFixed(5);
+    icon.position = Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude);
+    icon.name = "Ele " + position.coords.altitude + ", \nLat " + position.coords.latitude.toFixed(5) + ", \nLon " + position.coords.longitude.toFixed(5);
     //window.alert("Location updated");
   } else {
 
@@ -374,8 +375,8 @@ function showPosition(position) {
 
     // Add location icon
     icon = viewer.entities.add({
-      name: "Lat " + position.coords.latitude.toFixed(5) +
-      " \nLon " + position.coords.longitude.toFixed(5),
+      name: "Ele " + position.coords.altitude + ", \nLat " + position.coords.latitude.toFixed(5) +
+      ", \nLon " + position.coords.longitude.toFixed(5),
       position: Cesium.Cartesian3.fromDegrees(position.coords.longitude, position.coords.latitude),
       billboard: {
         image: "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607955354/position_kxc2vq.png",
@@ -403,6 +404,7 @@ function showPosition(position) {
 </script>
 
 <script>
+  // Adjust view to look straight down and top screen border points north
   function alignView() {
     var currentPosition = viewer.camera.positionCartographic;
     viewer.camera.flyTo({
