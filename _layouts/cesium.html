@@ -162,6 +162,11 @@
     // hide geometries behind terrain
     viewer.scene.globe.depthTestAgainstTerrain = true;
 
+    var layers = viewer.scene.imageryLayers;
+    var slope = layers.addImageryProvider(
+      new Cesium.OpenStreetMapImageryProvider({url : 'https://maps.trailguide.net/slope/'})
+    );
+
   </script>
 
   <!-- Show location -->
