@@ -59,6 +59,14 @@
         font-family: Arial, Helvetica, sans-serif;
       }
 
+      #toolbar {
+        display: block;
+        position: absolute;
+        bottom: 50px;
+        left: 5px;
+        color: white;
+      }
+
   </style>
 </head>
 <body>
@@ -70,6 +78,7 @@
   </div>
   <div id="baseLayerPickerContainer" style="position:absolute;top:24px;right:24px;width:38px;height:38px;"></div>
   <div id="height"></div>
+  <div id="toolbar"></div>
 
   <script>
     // Your access token can be found at: https://cesium.com/ion/tokens.
@@ -121,6 +130,26 @@
        terrainProvider: Cesium.createWorldTerrain()
      });
 
+     var layers = viewer.scene.imageryLayers;
+     var slope = layers.addImageryProvider(
+       new Cesium.OpenStreetMapImageryProvider({url : 'https://maps.trailguide.net/slope/'})
+     );
+
+     slope.show = false;
+
+     // Add a checkbox.
+     document.getElementById('toolbar').innerHTML = '<label><input type="checkbox" id="showCheckbox" /> Slope</label>';
+
+     var checkbox = document.getElementById('showCheckbox');
+     checkbox.addEventListener('change', function() {
+         // Checkbox state changed.
+         if (checkbox.checked) {
+           slope.show = true;
+         } else {
+           slope.show = false;
+         }
+     }, false);
+
     // // Handle camera rotation when zooming and camera points straight down
     //  var camera = viewer.scene.camera;
     //
@@ -161,11 +190,6 @@
 
     // hide geometries behind terrain
     viewer.scene.globe.depthTestAgainstTerrain = true;
-
-    var layers = viewer.scene.imageryLayers;
-    var slope = layers.addImageryProvider(
-      new Cesium.OpenStreetMapImageryProvider({url : 'https://maps.trailguide.net/slope/'})
-    );
 
   </script>
 
