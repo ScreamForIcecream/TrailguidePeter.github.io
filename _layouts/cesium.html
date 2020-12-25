@@ -130,6 +130,7 @@
        terrainProvider: Cesium.createWorldTerrain()
      });
 
+     // Slope layer and handling
      var layers = viewer.scene.imageryLayers;
      var slope = layers.addImageryProvider(
        new Cesium.OpenStreetMapImageryProvider({url : 'https://maps.trailguide.net/slope/'})
