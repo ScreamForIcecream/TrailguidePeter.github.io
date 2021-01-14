@@ -3,6 +3,7 @@ viewer.entities.add({
   polyline: {
     id: "Hochschelpen West",
     positions: Cesium.Cartesian3.fromDegreesArray([
+      10.102747,  47.462466,
       10.101586,	47.460028,
       10.097852,	47.457925,
       10.097509,	47.454152,

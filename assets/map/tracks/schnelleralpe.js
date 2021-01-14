@@ -3,6 +3,7 @@ viewer.entities.add({
   polyline: {
     id: "Schneller Alpe",
     positions: Cesium.Cartesian3.fromDegreesArray([
+      10.102081,  47.465918, 
       10.098195,	47.468195,
       10.099375,	47.470669,
       10.096587,	47.471046,
