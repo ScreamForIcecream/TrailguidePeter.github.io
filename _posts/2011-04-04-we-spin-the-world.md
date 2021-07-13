@@ -20,6 +20,14 @@ Cas sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, na
 
 Etiam porta **sem malesuada magna** mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
 
+<!-- Trailguide plugin for Hemsedal RIDES -->
+<iframe
+  title="Hemsedal RIDES"
+  src="https://trailguide.net/x4p"
+  width="100%"
+  height="600px">
+</iframe>
+
 ## Inline HTML elements
 
 HTML defines a long list of available inline tags, a complete list of which can be found on the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
