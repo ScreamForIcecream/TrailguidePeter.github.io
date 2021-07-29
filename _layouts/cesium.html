@@ -108,10 +108,12 @@
      imageryViewModels.push(new Cesium.ProviderViewModel({
          name : 'Satellite',
          iconUrl : "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607908467/mapthumbnail_satellite_a3fuzf.png",
-         maximumScreenSpaceError: 4,
          tooltip : 'Satellite pictures',
          creationFunction : function() {
-             return new Cesium.IonImageryProvider({ assetId: 2 });
+             return new Cesium.IonImageryProvider({
+               assetId: 2,
+               maximumScreenSpaceError: 4
+              });
          }
      }));
 
