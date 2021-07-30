@@ -127,7 +127,6 @@
        mapProjection : new Cesium.WebMercatorProjection(),
        useBrowserRecommendedResolution: true, // false decreases performance noticable but resolution is better
        terrainExaggeration: 1,
-       //maximumScreenSpaceError: 1,
        terrainProvider: Cesium.createWorldTerrain()
      });
 
@@ -193,7 +192,7 @@
     // hide geometries behind terrain
     viewer.scene.globe.depthTestAgainstTerrain = true;
 
-    // load higher resolution tiles. Default = 16
+    // load higher resolution tiles. Default = 2
     viewer.scene.globe.maximumScreenSpaceError = 1;
 
   </script>
