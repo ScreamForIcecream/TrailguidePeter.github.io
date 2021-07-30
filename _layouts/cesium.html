@@ -111,7 +111,8 @@
          tooltip : 'Satellite pictures',
          creationFunction : function() {
              return new Cesium.IonImageryProvider({
-               assetId: 2
+               assetId: 2,
+               maximumScreenSpaceError = 1
               });
          }
      }));
@@ -195,7 +196,7 @@
     viewer.scene.globe.depthTestAgainstTerrain = true;
 
     // load higher resolution tiles. Default = 16
-    viewer.scene.globe.maximumScreenSpaceError = 4;
+    //viewer.scene.globe.maximumScreenSpaceError = 4;
 
   </script>
 
