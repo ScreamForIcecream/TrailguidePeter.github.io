@@ -189,7 +189,8 @@ viewer.entities.add({
     material: new Cesium.PolylineOutlineMaterialProperty({
       color: Cesium.Color.fromBytes(26,73,170,220),
       outlineWidth: 1,
-      outlineColor: Cesium.Color.fromBytes(148,183,255,150),
+      // outlineColor: Cesium.Color.fromBytes(148,183,255,150),
+      outlineColor: Cesium.Color.fromBytes(26,73,170,100),
     }),
   },
 });
