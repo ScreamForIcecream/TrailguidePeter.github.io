@@ -136,7 +136,6 @@ viewer.entities.add({
     clampToGround: true,
     width: 4,
     distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.2e5),
-    granularity: 0.0017453292519943295,
     material: new Cesium.PolylineOutlineMaterialProperty({
       color: Cesium.Color.fromBytes(31,157,85,220),
       outlineWidth: 1,
