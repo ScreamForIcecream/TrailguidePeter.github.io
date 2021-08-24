@@ -13,6 +13,13 @@ Cesium.when(promise, function(updatedPositions) {
         viewer.entities.add({
           name: "Kleverudnatten, 808m",
           position: Cesium.Cartesian3.fromRadians(positions[0].longitude, positions[0].latitude, positions[0].height+40),
+          billboard: {
+            color: Cesium.Color.fromBytes(255,255,255),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            scaleByDistance: new Cesium.NearFarScalar(0, 0.25, 0.5e5, 0.03),
+            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.5e5),
+            image: images[0],
+          },
           label: {
             text: "Kleverudnatten\n808m",
             font: "24px Arial",
