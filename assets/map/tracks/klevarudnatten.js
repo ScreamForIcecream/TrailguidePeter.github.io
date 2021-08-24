@@ -15,6 +15,7 @@ viewer.entities.add({
 viewer.entities.add({
   polyline: {
     id: "Klevarudnatten",
+    name: "Klevarudnatten",
     positions: Cesium.Cartesian3.fromDegreesArray([
       9.135047999999983,	60.587536,
       9.135044999999991,	60.587524,

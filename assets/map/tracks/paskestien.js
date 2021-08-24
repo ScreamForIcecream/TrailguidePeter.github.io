@@ -15,6 +15,7 @@ viewer.entities.add({
 viewer.entities.add({
   polyline: {
     id: "Påskestien",
+    name: "Påskestien",
     positions: Cesium.Cartesian3.fromDegreesArray([
       9.059387,	60.57476,
       9.060162,	60.57516,

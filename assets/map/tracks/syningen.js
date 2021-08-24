@@ -15,6 +15,7 @@ viewer.entities.add({
 viewer.entities.add({
   polyline: {
     id: "Syningen",
+    name: "Syningen",
     positions: Cesium.Cartesian3.fromDegreesArray([
       9.05924,	60.534330000000004,
       9.05999,	60.53423000000001,

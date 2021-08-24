@@ -15,6 +15,7 @@ viewer.entities.add({
 viewer.entities.add({
   polyline: {
     id: "Den Ravinde",
+    name: "Den Ravinde",
     positions: Cesium.Cartesian3.fromDegreesArray([
         9.145262455567718,	60.57673305273056,
         9.144597686827183,	60.57699339464307,
