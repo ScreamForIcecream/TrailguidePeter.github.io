@@ -261,7 +261,7 @@
 
     // show the altitude on screen
     if (position.coords.altitude == null) {
-      document.getElementById("height").innerHTML = "No location data";
+      document.getElementById("height").innerHTML = Cesium.Math.RADIANS_PER_DEGREE;
     } else {
       var heighttext = Cesium.Math.RADIANS_PER_DEGREE;
       document.getElementById("height").innerHTML = heighttext;
