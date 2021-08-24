@@ -1,6 +1,9 @@
 // Add Trailguide logo
+var terrainProvider = new Cesium.createWorldTerrain();
 var positions = [Cesium.Cartographic.fromDegrees(9.1352287, 60.5873951),];
-
+var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, positions);
+Cesium.when(promise, function(updatedPositions) {
+  
 viewer.entities.add({
   position: Cesium.Cartesian3.fromRadians(positions[0].longitude, positions[0].latitude, positions[0].height+40),
   label: {
