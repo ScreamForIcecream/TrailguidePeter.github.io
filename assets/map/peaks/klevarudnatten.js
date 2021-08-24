@@ -12,7 +12,7 @@ Cesium.when(promise, function(updatedPositions) {
 
         viewer.entities.add({
           name: "Kleverudnatten, 808m",
-          position: Cesium.Cartesian3.fromRadians(positions[0].longitude, positions[0].latitude, positions[0].height+20),
+          position: Cesium.Cartesian3.fromRadians(positions[0].longitude, positions[0].latitude, positions[0].height+40),
           billboard: {
             color: Cesium.Color.fromBytes(90,90,90,255),
             verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
