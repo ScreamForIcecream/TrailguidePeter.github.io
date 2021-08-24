@@ -1,7 +1,7 @@
 // Add trailhead in form of a Billboard
 viewer.entities.add({
   name: "Den Ravinde",
-  position: Cesium.Cartesian3.fromDegrees(9.145262455567718,	60.57673305273056),
+  position: Cesium.Cartesian3.fromDegrees(9.145262455567718, 60.57673305273056),
   billboard: {
     image: "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607901172/trailhead_red_woxcny.png",
     scaleByDistance: new Cesium.NearFarScalar(0, 0.3, 0.5e5, 0.01),
