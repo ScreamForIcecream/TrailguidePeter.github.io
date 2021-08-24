@@ -1,16 +1,15 @@
 //Add mountain label & icon
 var terrainProvider = new Cesium.createWorldTerrain();
 
-var positions = [Cesium.Cartographic.fromDegrees(9.1096, 60.5717),];
-var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, positions);
-Cesium.when(promise, function(updatedPositions) {
+var positions2 = [Cesium.Cartographic.fromDegrees(9.1096, 60.5717),];
+var promise2 = Cesium.sampleTerrainMostDetailed(terrainProvider, positions2);
+Cesium.when(promise2, function(updatedPositions) {
 
   Cesium.when.all(
-  [Cesium.Resource.fetchImage("https://res.cloudinary.com/dztnnl8x9/image/upload/v1607814557/triangular_hmbuda.png"),],
-    function (images) {
+    function () {
         viewer.entities.add({
           name: "Nesbyen",
-          position: Cesium.Cartesian3.fromRadians(positions[0].longitude, positions[0].latitude, positions[0].height+40),
+          position: Cesium.Cartesian3.fromRadians(positions2[0].longitude, positions2[0].latitude, positions2[0].height+40),
           label: {
             text: "Kleverudnatten\n808m",
             font: "24px Arial",
