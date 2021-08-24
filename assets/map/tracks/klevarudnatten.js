@@ -355,7 +355,7 @@ viewer.entities.add({
     clampToGround: true,
     width: 4,
     scaleByDistance: new Cesium.NearFarScalar(0, 1, 0.5e5, 0.1),
-    distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.2e5),
+    distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.8e5),
     color: Cesium.Color.fromBytes(204,31,26,220),
   },
 });
