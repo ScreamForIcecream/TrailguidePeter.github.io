@@ -33,7 +33,6 @@ Cesium.when(promise, function(updatedPositions) {
             scaleByDistance: new Cesium.NearFarScalar(0, 1, 0.5e5, 0.1),
             distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.5e5),
             horizontalOrigin: Cesium.HorizontalOrigin.BOTTOM,
-            backgroundPadding: new Cesium.Cartesian2(4, 3),
           },
         });
       });
