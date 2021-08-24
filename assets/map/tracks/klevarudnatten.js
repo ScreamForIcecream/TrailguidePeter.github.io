@@ -356,6 +356,12 @@ viewer.entities.add({
     width: 4,
     scaleByDistance: new Cesium.NearFarScalar(0, 1, 0.5e5, 0.1),
     distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.8e5),
-    material: {solidColor: {color: Cesium.Color.fromBytes(204,31,26,220),},},
+    material: {
+      solidColor: {
+        color: {
+          rgba: [204,31,26,220],
+        },
+      },
+    },
   },
 });
