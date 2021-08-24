@@ -260,7 +260,7 @@ viewer.entities.add({
     material: new Cesium.PolylineOutlineMaterialProperty({
       color: Cesium.Color.fromBytes(19,23,26,220),
       outlineWidth: 1,
-      outlineColor: Cesium.Color.fromBytes(19,23,26,220),
+      outlineColor: Cesium.Color.fromBytes(200,200,200,150),
     }),
   },
 });

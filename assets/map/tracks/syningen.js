@@ -368,9 +368,9 @@ viewer.entities.add({
     width: 4,
     distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.2e5),
     material: new Cesium.PolylineOutlineMaterialProperty({
-      color: Cesium.Color.fromBytes(39,121,189,220),
+      color: Cesium.Color.fromBytes(26,73,170,220),
       outlineWidth: 1,
-      outlineColor: Cesium.Color.fromBytes(39,121,189,220),
+      outlineColor: Cesium.Color.fromBytes(148,183,255,150),
     }),
   },
 });

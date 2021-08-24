@@ -356,6 +356,10 @@ viewer.entities.add({
     scaleByDistance: new Cesium.NearFarScalar(0, 1, 0.5e5, 0.1),
     distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 0.8e5),
     cornerType: "ROUNDED",
-    material: Cesium.Color.fromBytes(204,31,26,220),
+    material: new Cesium.PolylineOutlineMaterialProperty({
+      color: Cesium.Color.fromBytes(204,31,26,220),
+      outlineWidth: 1,
+      outlineColor: Cesium.Color.fromBytes(255,164,161,150),
+    }),
   },
 });
