@@ -1,7 +1,7 @@
 // Add trailhead in form of a Billboard
 viewer.entities.add({
   name: "Syningen",
-  position: Cesium.Cartesian3.fromDegrees(9.1566236, 60.5786747),
+  position: Cesium.Cartesian3.fromDegrees(9.05924, 60.534330000000004),
   billboard: {
     image: "https://res.cloudinary.com/dztnnl8x9/image/upload/v1607904371/trailhead_blue_owmcnk.png",
     scaleByDistance: new Cesium.NearFarScalar(0, 0.3, 0.5e5, 0.01),
