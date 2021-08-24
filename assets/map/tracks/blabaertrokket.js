@@ -14,7 +14,6 @@ viewer.entities.add({
 // Add trail in form of a Polyline
 viewer.entities.add({
   polyline: {
-    id: "Blåbærtrokket",
     name: "Blåbærtrokket",
     positions: Cesium.Cartesian3.fromDegreesArray([
       9.1566236,	60.5786747,
